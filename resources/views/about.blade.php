@@ -2,6 +2,7 @@
 @section('content')
 
 
+{{-- ส่วนประวัติและพันธกิจ แสดงข้อความประกอบภาพของเว็บไซต์ --}}
 <section class="section-padding">
  <div class="container">
   <div class="row">
@@ -15,7 +16,8 @@
    </div>
   </div>
 
-  <div class="row mt-5">
+    {{-- สลับตำแหน่งภาพกับข้อความเพื่อแสดงพันธกิจของทีม --}}
+    <div class="row mt-5">
    <div class="col-lg-6 col-md-6">
     <img src="images/news/news-03.jpg" alt="" class="img-fluid rounded">   
    </div>
@@ -34,6 +36,7 @@
  </div>
 </section>
 
+{{-- ส่วนแนะนำสมาชิกทีม โดยแต่ละคอลัมน์แสดงรูป ชื่อ ตำแหน่ง และคำแนะนำตัว --}}
 <section class="section-padding">
  <div class="container">
   <div class="row">

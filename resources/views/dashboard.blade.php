@@ -1,11 +1,13 @@
 @extends('template.backend.master')
 @section('content')
+{{-- แสดงแดชบอร์ดตัวอย่างภายใน layout ของระบบหลังบ้าน --}}
 <main class="app-main">  
         <!--begin::App Content Header-->
         <div class="app-content-header">
           <!--begin::Container-->
           <div class="container-fluid">
             <!--begin::Row-->
+            {{-- การ์ดสรุปตัวเลขหลักของระบบ เช่น ผู้เรียนและจำนวนหลักสูตร --}}
             <div class="row">
               <div class="col-sm-6">
                 <h1 class="mb-0 fs-3">ภาพรวมหลักสูตรขนมไทย</h1>
@@ -29,6 +31,7 @@
           <!--begin::Container-->
           <div class="container-fluid">
             <!--begin::Row-->
+            {{-- แบ่งพื้นที่แดชบอร์ดเป็นกราฟยอดสมัครและกล่องข้อความจากผู้เรียน --}}
             <div class="row">
               <!--begin::Col-->
               <div class="col-lg-3 col-6">
@@ -165,12 +168,14 @@
                     <h3 class="card-title">ยอดสมัครเรียนรายเดือน</h3>
                   </div>
 
+                  {{-- JavaScript ของธีมใช้ id นี้เป็นตำแหน่งวาดกราฟยอดสมัครรายเดือน --}}
                   <div class="card-body">
                     <div id="enrollment-chart"></div>
                   </div>
                 </div>
                 <!-- /.card -->
 
+                {{-- กล่องสนทนาตัวอย่าง พร้อมข้อความและรายชื่อผู้ติดต่อ --}}
                 <!-- DIRECT CHAT -->
                 <div class="card direct-chat direct-chat-primary mb-4">
                   <div class="card-header">
@@ -207,6 +212,7 @@
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
+                    {{-- รายการข้อความสนทนาที่แสดงอยู่ในหน้าตัวอย่างนี้ --}}
                     <!-- Conversations are loaded here -->
                     <div
                       class="direct-chat-messages"
@@ -292,6 +298,7 @@
                     </div>
                     <!-- /.direct-chat-messages-->
 
+                    {{-- รายชื่อผู้เรียนที่เปิดดูบทสนทนาได้ --}}
                     <!-- Contacts are loaded here -->
                     <div class="direct-chat-contacts">
                       <ul class="contacts-list">
@@ -437,6 +444,7 @@
               <!-- /.Start col -->
 
               <!-- Start col -->
+              {{-- แสดงแผนที่และกราฟย่อยสรุปผู้เรียนตามภูมิภาคและสถานะการเรียน --}}
               <div class="col-lg-5 connectedSortable">
                 <div class="card text-white bg-primary bg-gradient border-primary mb-4">
                   <div class="card-header border-0">

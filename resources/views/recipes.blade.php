@@ -305,6 +305,7 @@
     </section>
 
     {{-- ส่วนนี้รับคำค้นและหมวดที่ผู้ใช้เลือก แล้ว JavaScript จะนำค่าไปกรองการ์ดสูตรด้านล่าง --}}
+    {{-- ช่องค้นหาดึงคำค้นจาก URL กลับมา และปุ่มด้านข้างใช้เลือกหมวดสูตร --}}
     <section class="course-tools" aria-label="ค้นหาและกรองสูตร">
         <div class="container">
             <div class="row align-items-center">
@@ -325,6 +326,7 @@
     </section>
 
     <section class="container" aria-label="รายการสูตรขนมไทย">
+        {{-- JavaScript อัปเดตจำนวนผลลัพธ์ในจุดนี้เมื่อค้นหาหรือเปลี่ยนหมวด --}}
         <p class="course-results" id="recipe-results" aria-live="polite"></p>
         {{-- วนข้อมูลทุกหมวดจาก config แล้วสร้างการ์ดของแต่ละสูตร จึงเพิ่มเมนูได้โดยไม่ต้องเขียน HTML ซ้ำ --}}
         <div class="recipe-grid">
@@ -339,6 +341,7 @@
                             </div>
                             <small class="image-credit" hidden></small>
                         </div>
+                        {{-- แสดงหมวด ชื่อ คำอธิบาย เวลา และรายละเอียดวัตถุดิบ/ขั้นตอนทำ --}}
                         <div class="recipe-content">
                             <div class="recipe-category">{{ $category['name'] }}</div>
                             <h2 class="recipe-title">{{ $recipe['name'] }}</h2>
@@ -364,6 +367,7 @@
                 @endforeach
             @endforeach
         </div>
+        {{-- หมายเหตุเรื่องการปรับสูตรและเครดิตภาพประกอบ --}}
         <p class="course-note">สูตรเป็นแนวทางสำหรับทำรับประทานในครัวเรือน ปรับความหวานและเวลาปรุงได้ตามวัตถุดิบและอุปกรณ์ ภาพประกอบค้นจาก Wikimedia Commons และแสดงเครดิต/สัญญาอนุญาตจากเจ้าของภาพแต่ละรายการ</p>
     </section>
 </main>

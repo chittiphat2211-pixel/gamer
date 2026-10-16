@@ -1,6 +1,7 @@
 
 @extends('template.frontend.master')
 @section('content')
+{{-- พื้นที่เนื้อหาหลักของหน้าติดต่อ แสดงคำแนะนำและแบบฟอร์ม --}}
 <section class="section-padding">
 	<div class="container">
 		<div class="row">
@@ -16,6 +17,7 @@
     </div>
 </div>
 
+{{-- แบบฟอร์มรับหัวข้อการติดต่อ ชื่อ อีเมล เรื่อง และข้อความจากผู้ใช้ --}}
 <form id="contact-form" class="my-5">
     <div class="row">
         <div class="col-md-8">
@@ -53,6 +55,7 @@
 
             <button class="btn btn-primary solid blank mt-3" type="submit">Send Message</button>
         </div>
+        {{-- แสดงแนวทางเลือกช่องทางติดต่อให้ตรงกับประเภทคำถาม --}}
         <div class="col-lg-4">
             <h4 class="text-black mb-4 mt-5 mt-lg-0">Hello! We’d like to make sure that your contact submission/feedback is directed to us. </h4>
             <p class="lead">Please read through the following carefully before submitting below:</p>
@@ -76,6 +79,7 @@
 	</div>
 </section>
 
+{{-- ส่วนท้ายหน้าแสดงโลโก้ ลิงก์โซเชียล ลิขสิทธิ์ และปุ่มกลับขึ้นด้านบน --}}
 <footer class="footer footer-main ">
     <div class="container">
         <div class="row justify-content-center">
@@ -107,6 +111,7 @@
 </footer>
 
 
+{{-- โหลดไลบรารีและสคริปต์ของธีมสำหรับส่วนติดต่อและการทำงานของหน้า --}}
 <!-- THEME JAVASCRIPT FILES
 ================================================== -->
 <!-- initialize jQuery Library -->
