@@ -1,6 +1,6 @@
 {{-- สร้างส่วนจัดการเซสชันที่กำลังใช้งานบนอุปกรณ์ต่าง ๆ --}}
 <x-action-section>
-    <x-slot name="title">       //ดดดดดดด
+    <x-slot name="title">       
         {{ __('Browser Sessions') }}
     </x-slot>
 
