@@ -1,0 +1,63 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Fortify\Features;
+use Laravel\Jetstream\Jetstream;
+use Tests\TestCase;
+
+class RegistrationTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_registration_screen_can_be_rendered(): void
+    {
+        // ถ้าเปิด registration ใน Fortify ผู้ใช้ควรเปิดหน้าสมัครสมาชิกได้
+        if (! Features::enabled(Features::registration())) {
+            $this->markTestSkipped('Registration support is not enabled.');
+
+            return;
+        }
+
+        $response = $this->get('/register');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_registration_screen_cannot_be_rendered_if_support_is_disabled(): void
+    {
+        // ถ้าปิด registration แล้ว การเรียก URL สมัครสมาชิกต้องได้สถานะไม่พบหน้า
+        if (Features::enabled(Features::registration())) {
+            $this->markTestSkipped('Registration support is enabled.');
+
+            return;
+        }
+
+        $response = $this->get('/register');
+
+        $response->assertStatus(404);
+    }
+
+    public function test_new_users_can_register(): void
+    {
+        // เมื่อส่งข้อมูลสมัครที่ถูกต้อง ระบบต้องสร้างบัญชีและ login ให้ผู้ใช้ต่อได้ทันที
+        if (! Features::enabled(Features::registration())) {
+            $this->markTestSkipped('Registration support is not enabled.');
+
+            return;
+        }
+
+        $response = $this->post('/register', [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
+        ]);
+
+        $this->assertAuthenticated();
+        $response->assertRedirect(RouteServiceProvider::HOME);
+    }
+}
